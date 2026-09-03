@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kindergarten Online Enrollment</title>
+</head>
+<body>
+    <h2>Kindergarten Online Enrollment Form</h2>
+    <form id="enrollmentForm" onsubmit="event.preventDefault(); processEnrollment();">
+        <label>Enrollment Year: 
+            <select id="year"><option value="2026">2026</option></select>
+        </label><br><br>
+        <label>Child Full Name: <input type="text" id="childName" required></label><br><br>
+        <label>Parent Name: <input type="text" id="parentName" required></label><br><br>
+        <label>Email: <input type="email" id="email" required></label><br><br>
+        <button type="submit" id="submitBtn">Submit Application</button>
+    </form>
+
+    <div id="confirmationMessage" style="display:none; margin-top: 20px;">
+        <h1 id="confirmationHeader"></h1>
+        <p id="timestampPara"></p>
+    </div>
+
+    <script>
+        function processEnrollment() {
+            const child = document.getElementById('childName').value;
+            const now = new Date().toLocaleString();
+            document.getElementById('enrollmentForm').style.display = 'none';
+            
+            const confDiv = document.getElementById('confirmationMessage');
+            confDiv.style.display = 'block';
+            document.getElementById('confirmationHeader').innerText = `Student ${child} submitted application for Kindergarden successfully`;
+            document.getElementById('timestampPara').innerText = `Timestamp: ${now}`;
+        }
+    </script>
+</body>
+</html>

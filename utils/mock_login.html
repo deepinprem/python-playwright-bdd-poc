@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Test Page</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+        <label>Username: <input type="text" id="username" required></label><br><br>
+        <label>Password: <input type="password" id="password" required></label><br><br>
+        <button type="submit" id="loginBtn">Login</button>
+    </form>
+
+    <div id="welcomeMessage" style="display:none; margin-top: 20px;"></div>
+
+    <script>
+        function handleLogin() {
+            const user = document.getElementById('username').value;
+            const now = new Date().toISOString();
+            document.getElementById('loginForm').style.display = 'none';
+            const welcomeDiv = document.getElementById('welcomeMessage');
+            welcomeDiv.style.display = 'block';
+            welcomeDiv.innerHTML = `<h1>User ${user.toUpperCase()} logged in</h1><p>Timestamp: ${now}</p>`;
+        }
+    </script>
+</body>
+</html>
