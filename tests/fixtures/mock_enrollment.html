@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Enrollment</title></head>
+<body>
+    <form id="form" onsubmit="event.preventDefault(); sub();">
+        <input type="text" id="childName" required>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+    <div id="msg" style="display:none;">
+        <h1 id="header"></h1><p id="time"></p>
+    </div>
+    <script>
+        function sub() {
+            const name = document.getElementById('childName').value;
+            document.getElementById('form').style.display = 'none';
+            document.getElementById('msg').style.display = 'block';
+            document.getElementById('header').innerText = `Student ${name} submitted application for Kindergarden successfully`;
+            document.getElementById('time').innerText = `Timestamp: ${new Date().toISOString()}`;
+        }
+    </script>
+</body>
+</html>

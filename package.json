@@ -1,0 +1,26 @@
+{
+  "name": "python-qa-automation-poc",
+  "version": "1.0.0",
+  "description": "��",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepinprem/python-playwright-bdd-poc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/deepinprem/python-playwright-bdd-poc/issues"
+  },
+  "homepage": "https://github.com/deepinprem/python-playwright-bdd-poc#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.1"
+  }
+}
