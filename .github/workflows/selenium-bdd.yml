@@ -1,0 +1,40 @@
+name: Selenium BDD Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  selenium-bdd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v2
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run Selenium BDD scenario
+        env:
+          BDD_BROWSER: selenium
+          BDD_HEADLESS: "true"
+        run: behave features --junit --junit-directory test-results/selenium-bdd
+
+      - name: Upload Behave results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-bdd-results
+          path: test-results/selenium-bdd/
+          if-no-files-found: ignore
